@@ -32,7 +32,7 @@ const { serialize } = require("v8");
 // 
 // const MONGO_URL="mongodb://127.0.0.1:27017/wanderLust";
 const dbUrl = process.env.MONGOATLAS_DB;
-console.log("DB URL =", process.env.MONGOATLAS_DB);
+//console.log("DB URL =", process.env.MONGOATLAS_DB);
 
 
 const Listing = require("./models/listing");
@@ -42,14 +42,14 @@ const Listing = require("./models/listing");
 async function main() {
   await mongoose.connect(dbUrl);
   console.log("connected to DB");
-   console.log("DB Host:", mongoose.connection.host);
-   console.log("Database name:", mongoose.connection.name);
+  //console.log("DB Host:", mongoose.connection.host);
+  //console.log("Database name:", mongoose.connection.name);
 
 
+const PORT=process.env.PORT || 8080;
 
-
-  app.listen(8080, () => {
-    console.log("server is listening to port 8080");
+  app.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
   });
 }
 
