@@ -69,6 +69,11 @@ const listingRouter=require("./routes/listing.js");
 const reviewRouter=require("./routes/review.js");
 const userRouter=require("./routes/user.js");
 
+app.get("/", (req, res) => {
+    res.redirect("/listings");
+});
+
+
 const store=MongoStore.create({
     mongoUrl:dbUrl,
     crypto:{
