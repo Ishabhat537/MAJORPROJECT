@@ -13,7 +13,12 @@
         <img src="<%= listing.image.url %>" class="card-img-top" alt="listing_image">
 
         <div class="card-body">
-          <p>Owned by @<i><%= listing.owner.username %></i></p>
+         
+           <p>
+          Owned by @
+          <i><%= listing.owner?.username || "Unknown User" %></i>
+          </p>
+
           <p><%= listing.description %></p>
           <p><b>₹ <%= listing.price.toLocaleString("en-IN") %></b></p>
           <p><%= listing.location %>, <%= listing.country %></p>
@@ -24,7 +29,7 @@
   </div>
 
   <!-- Edit/Delete -->
-  <% if(currUser && currUser._id.equals(listing.owner._id)){ %>
+  <% if(currUser && listing.owner && currUser._id.equals(listing.owner._id)){ %>
   <div class="row justify-content-center mt-3">
     <div class="col-12 col-md-8 d-flex gap-3">
       <a href="/listings/<%= listing._id %>/edit" class="btn edit-btn">Edit</a>
