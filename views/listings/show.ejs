@@ -10,13 +10,13 @@
       <h3 class="mb-3 offset-1"><b><%= listing.title %></b></h3>
 
       <div class="card show-card listing-card mx-auto">
-        <img src="<%= listing.image?.url : "/default-img.jpg" %>" class="card-img-top" alt="listing_image">
+        <img src="<%= listing.image ? listing.image.url : '/default-img.jpg' %>" class="card-img-top" alt="listing_image">
 
         <div class="card-body">
          
            <p>
           Owned by @
-          <i><%= listing.owner?.username || "Unknown User" %></i>
+          <i><%= listing.owner? listing.owner.username : "Unknown User" %></i>
           </p>
 
           <p><%= listing.description %></p>
